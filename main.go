@@ -2,18 +2,17 @@
 package main
 
 import (
-	"fmt"
 	"log"      // for logging any errors
 	"net/http" // for writing rest api
 
 	"github.com/gorilla/mux"
 )
 
-func home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to the home page!\n")
+func get(w http.ResponseWriter, r *http.Request) {
+	// fmt.Fprintf(w, "Welcome to the home page!\n")
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(`{"message": "response to GET request - Hello World!"}`))
+	w.Write([]byte(`{"message": "response to GET request - Welcome to the home page!"}`))
 }
 
 func post(w http.ResponseWriter, r *http.Request) {
@@ -42,7 +41,7 @@ func notFound(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	r := mux.NewRouter()
-	r.HandleFunc("/", home).Methods("GET")
+	r.HandleFunc("/", get).Methods("GET")
 	r.HandleFunc("/", post).Methods("POST")
 	r.HandleFunc("/", put).Methods("PUT")
 	r.HandleFunc("/", delete).Methods("DELETED")
