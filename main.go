@@ -44,7 +44,7 @@ func main() {
 	r.HandleFunc("/", get).Methods("GET")
 	r.HandleFunc("/", post).Methods("POST")
 	r.HandleFunc("/", put).Methods("PUT")
-	r.HandleFunc("/", delete).Methods("DELETED")
+	r.HandleFunc("/", delete).Methods("DELETE")
 	r.HandleFunc("/", notFound)
 
 	log.Fatal(http.ListenAndServe(":8085", r))
