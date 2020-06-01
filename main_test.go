@@ -24,7 +24,7 @@ func TestGet(t *testing.T) {
 	}
 
 	// Check response body for expected
-	expected := `{"message": "response to GET request - Welcome to the home page!"}`
+	expected := `{"message": "Successfully retrieved - Welcome to the home page!"}`
 	if rr.Body.String() != expected {
 		t.Errorf("handler returned unexpected body: got %v want %v",
 			rr.Body.String(), expected)
