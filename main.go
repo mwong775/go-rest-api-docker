@@ -9,10 +9,27 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func get(w http.ResponseWriter, r *http.Request) {
+type event struct {
+	ID          string `json:"ID"`
+	Title       string `json:"Title"`
+	Description string `json:"Description"`
+}
+
+type allEvents []event
+
+var events = allEvents{
+	{
+		ID:          "1",
+		Title:       "Introduction to Golang",
+		Description: "Learn how golang works and try it out!",
+	},
+}
+
+func home(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Welcome to the home page!\n")
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(`{"message": "GET called"}`))
+	w.Write([]byte(`{"message": "response to homepage request - Hello World!"}`))
 }
 
 func post(w http.ResponseWriter, r *http.Request) {
@@ -71,13 +88,11 @@ func msg(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	r := mux.NewRouter()
-	r.HandleFunc("/", get).Methods(http.MethodGet)
+	r.HandleFunc("/", home)
 	r.HandleFunc("/", post).Methods(http.MethodPost)
 	r.HandleFunc("/", put).Methods(http.MethodPut)
 	r.HandleFunc("/", delete).Methods(http.MethodDelete)
 	r.HandleFunc("/", notFound)
 
-	r.HandleFunc("/distributed", hello).Methods(http.MethodGet)
-	r.HandleFunc("/systems", msg).Methods(http.MethodGet, http.MethodPost)
 	log.Fatal(http.ListenAndServe(":8085", r))
 }
