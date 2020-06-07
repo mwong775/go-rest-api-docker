@@ -60,7 +60,7 @@ func TestPut(t *testing.T) {
 	rr := httptest.NewRecorder()
 	handler := http.HandlerFunc(put)
 	handler.ServeHTTP(rr, req)
-	if status := rr.Code; status != http.StatusAccepted {
+	if status := rr.Code; status != http.StatusOK {
 		t.Errorf("handler returned wrong status code: got %v want %v",
 			status, http.StatusOK)
 	}
