@@ -2,8 +2,8 @@
 Lab exercise/walkthrough: Build a simple REST API in Golang and host using Docker
 
 ## Prerequisites
-* Install Go
-* Configure GOPATH
+* Install Golang/Go
+* Install Docker Desktop for Windows and Mac
 
 ### Description
-* A simple REST API that allows users to read, create, and update events
+* Complete source code for a simple REST API written in Go and hosted using Docker
