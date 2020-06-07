@@ -9,7 +9,6 @@ import (
 )
 
 func get(w http.ResponseWriter, r *http.Request) {
-	// fmt.Fprintf(w, "Welcome to the home page!\n")
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write([]byte(`{"message": "Successfully retrieved - Welcome to the home page!"}`))
@@ -23,7 +22,7 @@ func post(w http.ResponseWriter, r *http.Request) {
 
 func put(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusAccepted)
+	w.WriteHeader(http.StatusOK)
 	w.Write([]byte(`{"message": "Successfully updated!"}`))
 }
 
