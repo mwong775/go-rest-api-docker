@@ -7,3 +7,4 @@ Lab exercise/walkthrough: Build a simple REST API in Golang and host using Docke
 
 ### Description
 * Complete source code for a simple REST API written in Go and hosted using Docker
+* PDF file contains step-by-step instructions and explanations for developing the application
